@@ -1,0 +1,17 @@
+### Load data
+
+# Download data from url
+
+## set url to download data
+
+url = "https://www.data.gouv.fr/fr/datasets/r/b62c05d2-6b45-44e0-80a4-6e10e3f14ec6"
+
+# path to save data
+dest_file <- here::here("data","data_2021.csv")
+
+# download
+utils::download.file(url      = url,
+                     destfile = dest_file,
+                     mode     = "wb")
+
+# Clean Data 
