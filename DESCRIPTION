@@ -1,0 +1,19 @@
+Package: practice
+Type: Package
+Title: practice
+Version: 0.0.0.9000
+Authors@R: c(
+    person(given   = "Quentin",
+           family  = "Guilloit",
+           role    = c("aut", "cre", "cph"),
+           email   = "q.guilloit@gmail.com",
+           comment = c(ORCID = "0000-0000-0000-0000")))
+Description: A paragraph providing a full description of the project (on 
+                                                                      several lines...)
+URL : https://github.com/Quentin-Guilloit/practice
+BugReports : https://github.com/Quentin-Guilloit/practice/issues
+License: GPL-2
+Encoding: UTF-8
+Roxygen : list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Import : 
