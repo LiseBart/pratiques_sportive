@@ -16,4 +16,7 @@ utils::download.file(url      = url,
                      destfile = dest_file,
                      mode     = "wb")
 
+# Read Data
+data <- data.table::fread(dest_file, sep=";")
+
 # Clean Data 
