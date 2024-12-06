@@ -33,7 +33,7 @@ result <- subset(result,select=c(1,5))
 result_sorted <-result[order(result$prop_femme),]
 
 #histogramme avec légendes
-png("barplot_large.png", width = 1200, height = 800)
+png("outputs/barplot_large.png", width = 1200, height = 800)
 par(mar = c(12, 4, 4, 2))  # Grandes marges
 barplot(result_sorted$prop_femme, 
         names.arg = result_sorted$Région, 
