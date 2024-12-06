@@ -20,3 +20,8 @@ Import :
     here,
     utils,
     data.table
+    dplyr
+    grr
+    Roxygen2
+Depends :
+    ggplot2
