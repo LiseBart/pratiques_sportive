@@ -102,6 +102,7 @@ ordonne_quentin <- function(data_in){
 #' 
 
 # Créer un graphique avec ggplot2
+selectionsport = c( 1,6,10,12,18,40,56,70,81,86,92,100,106)
 plot_quentin <- function(data_for_graph){
   p <- ggplot2::ggplot(data_for_graph, ggplot2::aes(x = 1:nrow(data_for_graph), y = diff)) +
     ggplot2::geom_point(color = "dodgerblue", size = 3, alpha = 0.7) + # Points bleus translucides

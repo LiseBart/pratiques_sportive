@@ -8,7 +8,6 @@ devtools::install_deps()
 
 # Attach packages
 #devtools::load_all()
-`%>%` = magrittr::`%>%`
 
 #RUN PROJECT
 

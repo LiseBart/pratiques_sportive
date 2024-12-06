@@ -2,8 +2,9 @@
 
 
 library(targets) 
+library(magrittr)
 
-targets::tar_source()
+tar_source()
 
 list( 
   
