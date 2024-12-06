@@ -1,6 +1,6 @@
 # Clean data
 
-data_grpd <- format_data(data)
+data_grpd <- format_data(data,classement_hf_sport)
 
 # nb participants par Fédé
 

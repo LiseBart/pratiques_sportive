@@ -4,12 +4,14 @@
 #' This function clean and format data with new column name
 #'
 #' @param data a `data.frame` containing observations
+#' 
+#' @classement_hf_sport a `vector` containing absolute disparities in athlete genders 
 #'
 #' @return A `data.frame`  
 #' 
 #' @importFrom tidyr::pivot_longer()
 
-format_data <- function(data) {
+format_data <- function(data, classement_hf_sport) {
   
   # clean col names
   
@@ -62,7 +64,7 @@ format_data <- function(data) {
   data_summary$Tranche_Age <- gsub(pattern= "à", replacement= "_", x= data_summary$Tranche_Age, fixed = T)
   
   
-  data_summary <- data_summary[data_summary$Fédération %in% c("FF de Gymnastique","FF de Natation", "FF de Tennis","FF de Tennis de Table","FF de Rugby", "FF du Sport Boules","FF de Football"),]
+  data_summary <- data_summary[data_summary$Fédération %in% head(classement_hf_sport,10),]
   
   return(data_summary)
   
