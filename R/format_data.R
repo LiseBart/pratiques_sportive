@@ -10,7 +10,6 @@
 #' 
 #' @importFrom rlang .data
 
-
 format_data <- function(data) {
   
   # delete space in column names
