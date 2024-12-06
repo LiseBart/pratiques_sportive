@@ -6,10 +6,10 @@ editor: visual
 execute: 
   echo: false
 ---
+
 ## Développement du projet sur github
+
 ![](figures/png.png)
-
-
 
 ## Classement des régions en fonction de la proportion de femmes parmis les sportifs
 
