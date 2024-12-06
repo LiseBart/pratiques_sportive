@@ -3,6 +3,7 @@
 
 library(targets) 
 library(magrittr)
+library(tidyr)
 
 tar_source()
 
@@ -20,8 +21,13 @@ list(
   #sort the quentin's dataset 
   tar_target(name = quentin_data_sort, ordonne_quentin(creat_data_quentin)),
   
-  #Raw wildfinder mammals list
-  tar_target(name = creat_plot_quentin,plot_quentin(quentin_data_sort))
+  #Creat Quentin Plot 
+  tar_target(name = creat_plot_quentin,plot_quentin(quentin_data_sort)),
   
+  #Creat classement_hf_sport
+  tar_target(name = creat_classement_hf_sport,plot_quentin(creat_data_quentin)),
+  
+  #Creat data Lise
+  tar_target(name = creat_data_lise,format_data(install_data,creat_classement_hf_sport))
 )
 
