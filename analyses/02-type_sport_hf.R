@@ -55,3 +55,31 @@ plot(1:nrow(data_quentin), data_quentin$diff,
 # Ajouter les étiquettes (Col1) aux points
 selectionsport <- c(1,6,10,12,18,40,56,70,81,86,92,100,106)
 text(selectionsport, data_quentin$diff[selectionsport], labels = data_quentin$Fédération[selectionsport], pos = 4, cex = 0.8, col = "red")
+
+
+
+
+# Créer un graphique avec ggplot2
+p <- ggplot2::ggplot(data_quentin, ggplot2::aes(x = 1:nrow(data_quentin), y = diff)) +
+  ggplot2::geom_point(color = "dodgerblue", size = 3, alpha = 0.7) + # Points bleus translucides
+  ggplot2::geom_text(data = data_quentin[selectionsport, ], 
+                     ggplot2::aes(x = selectionsport, y = diff, label = Fédération), 
+                     nudge_x = 3, nudge_y = 0.5, 
+                     color = "darkred", size = 3.5) + # Étiquettes rouges
+  ggplot2::labs(
+    title = "Nuage de points avec étiquettes sélectionnées",
+    x = "Ordre des données",
+    y = "Différence (diff)"
+  ) +
+  ggplot2::theme_minimal(base_size = 14) + # Thème propre et épuré
+  ggplot2::scale_x_continuous(
+    limits = c(-10, nrow(data_quentin) + 20), # Ajout d'espace à gauche
+    expand = ggplot2::expansion(mult = c(0.05, 0.1)) # Espacement supplémentaire
+  )
+
+#Plot the figure
+print(p)
+
+# Sauvegarder le graphique dans un fichier PNG
+
+ggplot2::ggsave("sport_par_sexisme.png",path = here::here("figures"), plot = p, width = 10, height = 6, dpi = 300)
