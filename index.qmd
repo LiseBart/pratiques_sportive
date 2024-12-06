@@ -1,28 +1,29 @@
 ---
-title: "Untitled"
+title: "Pratiques sportives et égalité H/F en France"
+subtitle: "Lise, Quentin, Hippolyte"
 format: revealjs
 editor: visual
+execute: 
+  echo: false
 ---
+## Développement du projet sur github
+![](figures/png.png)
 
-## Quarto
 
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
 
-## Bullets
-
-When you click the **Render** button a document will be generated that includes:
-
--   Content authored with markdown
--   Output from executable code
-
-## Code
-
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+## Classement des régions en fonction de la proportion de femmes parmis les sportifs
 
 ```{r}
 devtools::load_all()
+source("make.R")
 source("analyses/01-Load_data.R") #fait tourner le script
 source("analyses/03-analyse_hippo.R")
 ```
 
-![text](figures/barplot_large.png)
+![](figures/barplot_large.png)
+
+## Classement des sports en fonction de la proportion d'hommes
+
+```{r}
+#source("analyses/02-type_sport_hf.R")
+```

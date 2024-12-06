@@ -5,8 +5,27 @@
 #copie le jeu de données
 data_1 <- data
 
+
+format_data_2 <- function(data) {
+  
+  # clean col names
+  
+  colnames(data) <- sapply(colnames(data), function(col) {
+    
+    # Supprimer les espaces dans les noms de colonnes
+    col <- gsub(pattern = " ", replacement = "", x = col, fixed = TRUE)
+    
+    # Remplacer "-" par "_"
+    col <- gsub(pattern = "-", replacement = "_", x = col, fixed = TRUE)
+    
+  })
+  
+  return(data)
+  
+}
+
 #supprime les espaces dans les titres des colonnes
-data_1 <- format_data(data_1)
+data_1 <- format_data_2(data_1)
 
 #nettoie et sélectionne uniquement les données nécessaires au graphe
 result_sorted <- sum_remove(data_1)

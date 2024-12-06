@@ -17,7 +17,7 @@ devtools::load_all()
 # Do you need to download data ?
 Download <- FALSE # If TRUE, data will be downloaded, tap FALSE if data is available in /data
 
-source(here::here("analyses","01-Load_data.R"))
+#source(here::here("analyses","01-Load_data.R"))
 
-source(here::here("analyses","04-Exploration_lise.R"))
+#source(here::here("analyses","04-Exploration_lise.R"))
 
