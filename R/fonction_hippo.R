@@ -32,3 +32,17 @@ sum_remove <- function(data_1){
   
   return(result_sorted)
 }
+
+
+fct_graph_hippo <- function(result_sorted){
+  #histogramme avec légendes
+  png("figures/barplot_large.png", width = 1200, height = 800)
+  par(mar = c(12, 4, 4, 2))  # Grandes marges
+  barplot(result_sorted$prop_femme, 
+          names.arg = result_sorted$Région, 
+          las = 2, 
+          xlab = "", 
+          ylab = "Proportion de femmes sportives", 
+          cex.names = 1)
+  dev.off()
+}

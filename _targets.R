@@ -28,6 +28,12 @@ list(
   tar_target(name = creat_classement_hf_sport,plot_quentin(creat_data_quentin)),
   
   #Creat plot lise
-  tar_target(name = creat_plot_lise,make_plot(install_data,creat_classement_hf_sport))
+  tar_target(name = creat_plot_lise,make_plot(install_data,creat_classement_hf_sport)),
+  
+  #Creat data set Hippo
+  tar_target(name = creat_data_hippo,sum_remove(install_data)),
+  
+  #Creat graph set Hippo
+  tar_target(name = creat_graph_hippo,fct_graph_hippo(creat_data_hippo))
 )
 

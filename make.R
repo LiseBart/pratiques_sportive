@@ -11,12 +11,6 @@ devtools::install_deps()
 
 #RUN PROJECT
 
-# Load data
-
-source(here::here("analyses","01-Load_data.R"))
-
-source(here::here("analyses","04-Exploration_lise.R"))
-
 
 ## targets ----
 # ---- project execution
