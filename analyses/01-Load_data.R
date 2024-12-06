@@ -12,11 +12,11 @@ dest_file <- here::here("data","data_2021.csv")
 # download
 options(timeout = 1000)
 
+if (Download & !file.exists(dest_file)) {
 utils::download.file(url      = url,
                      destfile = dest_file,
                      mode     = "wb")
+}
 
 # Read Data
 data <- data.table::fread(dest_file, sep=";")
-
-# Clean Data 
