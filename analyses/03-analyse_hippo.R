@@ -1,14 +1,7 @@
 #copie le jeu de données
 data_1 <- data
 
-format_data <- function(data) {
-  # delete space in column names
-  colnames(data) <- sapply(colnames(data), function(col) {
-    gsub(pattern= " ", replacement= "", x= col, fixed = T)}
-  )
-  return(data)
-}
-
+#supprime les espaces dans les titres des colonnes
 data_1 <- format_data(data_1)
 
 #somme de toutes les classes d'âge femme (avec NR)
@@ -17,7 +10,36 @@ data_1$sum_femme <- rowSums(data_1[, 10:27])
 data_1$sum_homme <- rowSums(data_1[,28:45])
 #on enlève les colonnes classes d'âge
 data_1 <- subset(data_1,select=-c(10:46))
+#on enlève les 5 premières colonnes
+data_1 <- subset(data_1,select=-c(1:5))
 #on enlève les 4 premières colonnes
-data_1 <- subset(data_1,select=-c(1:4))
+data_1 <- subset(data_1,select=-c(2:4))
+
+#j'enlève les catégories étrangers
+data_1 <- subset(data_1,Région != "Etranger")
+#j'enlève les catégories NR dans Région
+data_1 <- subset(data_1,Région != "NR - Non réparti")
+
 #je veux additionner toutes les villes par région
-data_1 <- data_1[data_1$]
+result <- aggregate(cbind(Total, sum_femme, sum_homme) ~ Région, data = data_1, FUN = sum)
+
+#création d'une colonne : proportion de femmes
+result$prop_femme <- result$sum_femme/result$Total
+
+#je garde juste les colonnes région et prop femme
+result <- subset(result,select=c(1,5))
+
+#trier par ordre croissant
+result_sorted <-result[order(result$prop_femme),]
+
+#histogramme avec légendes
+png("barplot_large.png", width = 1200, height = 800)
+par(mar = c(12, 4, 4, 2))  # Grandes marges
+barplot(result_sorted$prop_femme, 
+        names.arg = result_sorted$Région, 
+        las = 2, 
+        xlab = "", 
+        ylab = "Proportion de femmes sportives", 
+        cex.names = 1)
+dev.off()
+
