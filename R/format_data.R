@@ -11,7 +11,7 @@
 #' 
 #' @importFrom tidyr::pivot_longer()
 
-format_data <- function(data, classement_hf_sport) {
+format_data <- function(data, vecteur_sport = classement_hf_sport) {
   
   # clean col names
   
@@ -64,7 +64,7 @@ format_data <- function(data, classement_hf_sport) {
   data_summary$Tranche_Age <- gsub(pattern= "à", replacement= "_", x= data_summary$Tranche_Age, fixed = T)
   
   
-  data_summary <- data_summary[data_summary$Fédération %in% head(classement_hf_sport,10),]
+  data_summary <- data_summary[data_summary$Fédération %in% head(vecteur_sport,10),]
   
   return(data_summary)
   
