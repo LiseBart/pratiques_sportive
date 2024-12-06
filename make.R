@@ -7,7 +7,7 @@ if (system.file(package = 'devtools') == "") {
 devtools::install_deps()
 
 # Attach packages
-devtools::load_all()
+#devtools::load_all()
 `%>%` = magrittr::`%>%`
 
 #RUN PROJECT
@@ -20,3 +20,14 @@ Download <- FALSE # If TRUE, data will be downloaded, tap FALSE if data is avail
 source(here::here("analyses","01-Load_data.R"))
 
 source(here::here("analyses","04-Exploration_lise.R"))
+
+
+## targets ----
+# ---- project execution
+targets::tar_config_set(
+  store  = "outputs/pipeline/",
+  script = "_targets.R"
+)
+
+targets::tar_make()
+targets::tar_visnetwork()

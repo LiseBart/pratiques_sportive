@@ -1,4 +1,4 @@
-#' @title trier-quentin
+#' @title trier_quentin
 #'
 #' #' @description 
 #' This function clean and modify the base dataset 
