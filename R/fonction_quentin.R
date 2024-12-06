@@ -1,3 +1,14 @@
+format_data_quentin <- function(data) {
+
+  colnames(data) <- sapply(colnames(data), function(col){
+    col <- gsub(pattern = " ", replacement = "", x=col, fixed = TRUE)
+    #col <- gsub(pattern = "-", replacement = "_", x = col, fixed = TRUE)
+  })
+  return(data)
+}
+
+
+
 #' @title trier_quentin
 #'
 #' #' @description 
@@ -15,7 +26,7 @@ trier_quentin <- function(data_in){
     data_quentin <- data_in
     
     ##Formater le tableau ----
-    data_quentin <- format_data(data_quentin)
+    data_quentin <- format_data_quentin(data_quentin)
     
     ## Fusion des colonnes ages ----
     data_quentin$femme_tot <- rowSums(data_quentin[, 10:27])
