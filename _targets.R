@@ -27,7 +27,7 @@ list(
   #Creat classement_hf_sport
   tar_target(name = creat_classement_hf_sport,plot_quentin(creat_data_quentin)),
   
-  #Creat data Lise
-  tar_target(name = creat_data_lise,format_data(install_data,creat_classement_hf_sport))
+  #Creat plot lise
+  tar_target(name = creat_plot_lise,make_plot(install_data,creat_classement_hf_sport))
 )
 

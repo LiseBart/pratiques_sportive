@@ -11,11 +11,11 @@
 #' 
 #' @importFrom tidyr::pivot_longer()
 
-format_data <- function(data, vecteur_sport) {
+make_plot <- function(data, vecteur_sport) {
   
   # Clean data
   
-  data_grpd <- format_data(data, vecteur_sport = classement_hf_sport)
+  data_grpd <- format_data(data, vecteur_sport)
   
   plot_sport <- ggplot2::ggplot(data_grpd, ggplot2::aes(x = Fédération, y = Total, fill = interaction(Genre, class_Age))) +
     ggplot2::geom_bar(stat = "identity", position = "stack") +
