@@ -19,9 +19,10 @@ RoxygenNote: 7.3.2
 Import : 
     here,
     utils,
-    data.table
-    dplyr
-    grr
-    Roxygen2
+    dplyr,
+    grr,
+    Roxygen2,
+    data.table,
+    dplyr,
 Depends :
     ggplot2

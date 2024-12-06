@@ -12,8 +12,10 @@
 
 format_data <- function(data) {
   
+  # clean col names
   
   colnames(data) <- sapply(colnames(data), function(col) {
+    
     # Supprimer les espaces dans les noms de colonnes
     col <- gsub(pattern = " ", replacement = "", x = col, fixed = TRUE)
     
@@ -21,27 +23,10 @@ format_data <- function(data) {
     col <- gsub(pattern = "-", replacement = "_", x = col, fixed = TRUE)
     
   })
-
-  # delete spaces in column fédé
-  #data$Fédération <- sub(" ", "", data$Fédération)
-  
-  #data$Fédération <- sapply(data$Fédération, function(fédé) {
-   
-     # short fédé names 
-  #  gsub(pattern= ".*_", replacement= "", x= fédé, fixed = T)
-    
-   # }
-  #)
   
   
-  # keep data in France
+  # keep only data in France
   data <- data[data$Statutgéo == "1.Champ geoc",]
-  
-  # keep columns of interest
-  
-  #try <- data %>%
-   # dplyr::select(-CodeCommune, -CodeQPV, -NomQPV, -Statutgéo, -Code, -Commune, -F_NR) %>%
-  #  dplyr::distinct()
   
   
   # put ages in one column
@@ -62,6 +47,8 @@ format_data <- function(data) {
   # keep data with known age
   data_summary <- data_summary[data_summary$Tranche_Age != "NR",]
   
+  
+  # create 3 age classes
   data_summary$class_Age <- sapply(data_summary$Tranche_Age, function (code) {
     if (code %in% c("1à4ans", "5à9ans", "10à14ans", "15à19ans", "20à24ans")) {
       "jeunes"
