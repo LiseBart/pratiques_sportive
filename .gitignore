@@ -5,5 +5,4 @@
 *.Rproj
 /data
 .Rbuildignore
-/figures
 /outputs
