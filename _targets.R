@@ -6,8 +6,9 @@ library(targets)
 targets::tar_source()
 
 list( 
+  
   #Install general data 
-  tar_target(name = install_data, load_data(Download)),
+  tar_target(name = install_data, load_data()),
   
   #Raw general data
   tar_target(name = general_data, here::here("data","data_2021.csv")),
@@ -22,3 +23,4 @@ list(
   tar_target(name = creat_plot_quentin,plot_quentin(quentin_data_sort))
   
 )
+

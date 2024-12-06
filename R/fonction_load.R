@@ -11,7 +11,7 @@
 #' 
 
 
-load_data <- function(already_dl){
+load_data <- function(){
   ### Load data
   
   # Download data from url
@@ -26,7 +26,7 @@ load_data <- function(already_dl){
   # download
   options(timeout = 1000)
   
-  if (already_dl & !file.exists(dest_file)) {
+  if (!file.exists(dest_file)) {
     utils::download.file(url      = url,
                          destfile = dest_file,
                          mode     = "wb")

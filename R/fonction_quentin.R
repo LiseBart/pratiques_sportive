@@ -125,3 +125,4 @@ plot_quentin <- function(data_for_graph){
   
   ggplot2::ggsave("sport_par_sexisme.png",path = here::here("figures"), plot = p, width = 10, height = 6, dpi = 300)
 }
+
