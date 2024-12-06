@@ -25,4 +25,4 @@ source("analyses/01-Load_data.R") #fait tourner le script
 source("analyses/03-analyse_hippo.R")
 ```
 
-![text](here::here("figures","barplot_large.png"))
+![text](figures/barplot_large.png)
